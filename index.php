@@ -53,7 +53,7 @@ $this->need('header.php');
                                     <?php if (!empty($thumb)): ?>
                                         <img src="<?php echo $thumb; ?>)">
                                     <?php else : ?>
-                                        <img src="<?php $this->options->themeUrl('assets/images/D/dribbble.png'); ?>">
+                                        <img src="<?php $this->options->themeUrl('assets/images/lemonsaas.png'); ?>">
                                     <?php endif; ?>
                                 </span>
 
