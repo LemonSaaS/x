@@ -48,14 +48,15 @@ $this->need('header.php');
                                             <a class="card-heading link-tooltip" title="<?php $catlist->title() ?>"
                                                href="<?php $catlist->permalink() ?>">
 
-                                <span class="card-icon">
-                                <?php $thumb = showThumb($this, null, true); ?>
-                                    <?php if (!empty($thumb)): ?>
-                                        <img src="<?php echo $thumb; ?>">
-                                    <?php else : ?>
-                                        <img src="<?php $this->options->themeUrl('assets/images/lemonsaas.png'); ?>">
-                                    <?php endif; ?>
-                                </span>
+
+                                                <span class="card-icon">
+                                                <?php $thumb = showThumb($catlist, null, true); ?>
+                                                <?php if (!empty($thumb)): ?>
+                                                    <img src="<?php echo $thumb; ?>">
+                                                <?php else : ?>
+                                                    <img src="<?php $this->options->themeUrl('assets/images/lemonsaas.png'); ?>">
+                                                <?php endif; ?>
+                                                </span>
 
                                                 <span class="card-title"><?php $catlist->title() ?></span>
                                             </a>
