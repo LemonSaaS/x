@@ -29,7 +29,7 @@
                     <span class="card-icon">
                     <?php $thumb = showThumb($this, null, true); ?>
                         <?php if (!empty($thumb)): ?>
-                            <img src="<?php echo $thumb; ?>)">
+                            <img src="<?php echo $thumb; ?>">
                         <?php else : ?>
                             <img src="<?php $this->options->themeUrl('assets/images/lemonsaas.png'); ?>">
                         <?php endif; ?>
