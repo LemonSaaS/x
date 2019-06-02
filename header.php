@@ -22,9 +22,9 @@
 </head>
 <body>
 
-<div style="margin:0 auto;width:0px;height:0px;overflow:hidden; ">
-    <img src="<?php $this->options->themeUrl('assets/images/logo/300.png'); ?>">
-</div>
+<!--<div style="margin:0 auto;width:0px;height:0px;overflow:hidden; ">-->
+<!--    <img src="--><?php //$this->options->themeUrl('assets/images/logo/300.png'); ?><!--">-->
+<!--</div>-->
 
 <!--<header class="mobile-header-wrap">-->
 <!--    <a class="mobile-logo" href="--><?php //$this->options->siteUrl(); ?><!--">-->

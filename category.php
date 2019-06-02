@@ -22,21 +22,27 @@
                         <div class="sm-6 md-4 lg-3">
                             <div class="card">
                                 <a class="card-heading link-tooltip" title="<?php $this->title() ?>"
-                                   href="<?php $this->permalink() ?>">
+                                   href="<?php getUrl($this); ?>">
 
-                    <span class="card-icon">
-                    <?php $thumb = showThumb($this, null, true); ?>
-                        <?php if (!empty($thumb)): ?>
-                            <img src="<?php echo $thumb; ?>">
-                        <?php else : ?>
-                            <img src="<?php $this->options->themeUrl('assets/images/lemonsaas.png'); ?>">
-                        <?php endif; ?>
-                    </span>
+                                    <span class="card-icon">
+                                    <?php $thumb = showThumb($this, null, true); ?>
+                                        <?php if (!empty($thumb)): ?>
+                                            <img src="<?php echo $thumb; ?>">
+                                        <?php else : ?>
+                                            <img src="<?php $this->options->themeUrl('assets/images/lemonsaas.png'); ?>">
+                                        <?php endif; ?>
+                                    </span>
 
                                     <span class="card-title"><?php $this->title() ?></span>
                                 </a>
                                 <div class="card-body">
-                                    <?php $this->excerpt(20, ''); ?>
+                                    <?php
+                                    if ($this->fields->des) {
+                                        echo $this->fields->des;
+                                    } else {
+                                        $this->excerpt(20, '');
+                                    }
+                                    ?>
                                 </div>
                                 <div class="card-footer">
                                     <table>

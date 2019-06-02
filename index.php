@@ -26,6 +26,22 @@ $this->need('header.php');
             </div>
         </a>
 
+        <?php $this->widget('Widget_Metas_Tag_Cloud', 'sort=mid&ignoreZeroCount=1&limit=30')->to($tags); ?>
+        <?php if ($tags->have()): ?>
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="row">
+                        <?php while ($tags->next()): ?>
+                            <div class="panel-title card" style="margin-bottom: initial">
+                                <a href="<?php $tags->permalink(); ?>"
+                                   title='<?php $tags->name(); ?>'><?php $tags->name(); ?></a>
+                            </div>
+                        <?php endwhile; ?>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+
 
         <?php $this->widget('Widget_Metas_Category_List')->to($categorys); ?>
         <?php if ($categorys->have()): ?>
@@ -33,12 +49,8 @@ $this->need('header.php');
                 <?php $catlist = $this->widget('Widget_Archive@categorys_' . $categorys->mid, 'pageSize=10000&type=category', 'mid=' . $categorys->mid); ?>
                 <?php if ($catlist->have()): ?>
 
-                    <a id="<?php $categorys->name(); ?>" href="<?php $categorys->permalink(); ?>"></a>
                     <div class="panel">
-                        <div class="panel-title card">
-<!--                            <i class="czs-trophy-l"></i>-->
-                            <a href="<?php $categorys->permalink(); ?>"><?php $categorys->name(); ?></a>
-                        </div>
+
                         <div class="panel-body">
                             <div class="row">
 
@@ -46,22 +58,27 @@ $this->need('header.php');
                                     <div class="sm-6 md-4 lg-3">
                                         <div class="card">
                                             <a class="card-heading link-tooltip" title="<?php $catlist->title() ?>"
-                                               href="<?php $catlist->permalink() ?>">
-
+                                               href="<?php getUrl($catlist); ?>">
 
                                                 <span class="card-icon">
                                                 <?php $thumb = showThumb($catlist, null, true); ?>
-                                                <?php if (!empty($thumb)): ?>
-                                                    <img src="<?php echo $thumb; ?>">
-                                                <?php else : ?>
-                                                    <img src="<?php $this->options->themeUrl('assets/images/lemonsaas.png'); ?>">
-                                                <?php endif; ?>
+                                                    <?php if (!empty($thumb)): ?>
+                                                        <img src="<?php echo $thumb; ?>">
+                                                    <?php else : ?>
+                                                        <img src="<?php $this->options->themeUrl('assets/images/lemonsaas.png'); ?>">
+                                                    <?php endif; ?>
                                                 </span>
 
                                                 <span class="card-title"><?php $catlist->title() ?></span>
                                             </a>
                                             <div class="card-body">
-                                                <?php $this->excerpt(20, ''); ?>
+                                                <?php
+                                                if ($catlist->fields->des) {
+                                                    echo $catlist->fields->des;
+                                                } else {
+                                                    $catlist->excerpt(20, '');
+                                                }
+                                                ?>
                                             </div>
                                             <div class="card-footer">
                                                 <table>

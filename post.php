@@ -13,22 +13,26 @@
 
         <div class="board selected-nav">
             <span class="post-card-icon">
-                                <?php $thumb = showThumb($this, null, true); ?>
+                <?php $thumb = showThumb($this, null, true); ?>
                 <?php if (!empty($thumb)): ?>
                     <img src="<?php echo $thumb; ?>">
                 <?php else : ?>
                     <img src="<?php $this->options->themeUrl('assets/images/lemonsaas.png'); ?>">
                 <?php endif; ?>
-                                </span>
+            </span>
             <span class="selected-nav-cn"><?php $this->title() ?></span>
             <span class="post-category">
-                <?php $this->category(''); ?>
+                <?php
+                if ($this->fields->des) {
+                    echo $this->fields->des;
+                }
+                ?>
             </span>
         </div>
         <div class="panel">
             <?php if (count($this->tags) > 0): ?>
                 <div class="panel-title card">
-                    <?php $this->tags('</div><div class="panel-title card">', false, ''); ?>
+                    <?php $this->tags('</div><div class="panel-title card">', true, ''); ?>
                 </div>
             <?php endif; ?>
 
