@@ -39,7 +39,7 @@
                                 <div class="card-body">
                                     <?php
                                     if ($this->fields->des) {
-                                        echo $catlist->fields->des;
+                                        echo $this->fields->des;
                                     } else {
                                         $this->excerpt(20, '');
                                     }
