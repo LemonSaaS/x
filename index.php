@@ -85,14 +85,13 @@ $this->need('header.php');
                                                         <td class="btn-view" data-url="<?php $catlist->permalink() ?>">
                                                             <a href="<?php $catlist->permalink() ?>"
                                                                target="_blank">
-                                                                <i class="czs-eye-l"></i>
-                                                                <span><?php echo ViewsCounter_Plugin::getViews(); ?></span>
+                                                                <i class="czs-eye"></i>
+                                                                <span><?php echo ViewsCounter_Plugin::getViews($catlist->cid); ?></span>
                                                             </a>
                                                         </td>
                                                         <td class="favour">
-                                                            <i class="czs-heart"></i>
-                                                            <span class="count post-like"
-                                                                  data-pid="<?php echo $catlist->cid ?>"> <?php Like_Plugin::theLike(false); ?></span>
+                                                            <i class="czs-heart post-like" data-pid="<?php echo $catlist->cid?>" ></i>
+                                                            <span class="count" > <?php Like_Plugin::theLike($catlist->cid,false); ?></span>
                                                         </td>
                                                     </tr>
                                                     </tbody>
