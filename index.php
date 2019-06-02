@@ -30,14 +30,12 @@ $this->need('header.php');
         <?php if ($tags->have()): ?>
             <div class="panel">
                 <div class="panel-body">
-                    <div class="row">
-                        <?php while ($tags->next()): ?>
-                            <div class="panel-title card" style="margin-bottom: initial">
-                                <a href="<?php $tags->permalink(); ?>"
-                                   title='<?php $tags->name(); ?>'><?php $tags->name(); ?></a>
-                            </div>
-                        <?php endwhile; ?>
-                    </div>
+                    <?php while ($tags->next()): ?>
+                        <div class="panel-title card" style="margin-bottom: initial">
+                            <a href="<?php $tags->permalink(); ?>"
+                               title='<?php $tags->name(); ?>'><?php $tags->name(); ?></a>
+                        </div>
+                    <?php endwhile; ?>
                 </div>
             </div>
         <?php endif; ?>
