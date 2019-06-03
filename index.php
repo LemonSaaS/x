@@ -31,7 +31,7 @@ $this->need('header.php');
             <div class="panel">
                 <div class="panel-body">
                     <?php while ($tags->next()): ?>
-                        <div class="panel-title card" style="margin-bottom: initial">
+                        <div class="panel-title card" style="margin-bottom: 10px">
                             <a href="<?php $tags->permalink(); ?>"
                                title='<?php $tags->name(); ?>'><?php $tags->name(); ?></a>
                         </div>
