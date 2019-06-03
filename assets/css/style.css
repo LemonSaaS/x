@@ -691,6 +691,12 @@ a:hover {
     color: #bbb
 }
 
+@media screen and (max-width: 767px) {
+    .panel-body img{
+        width: 100%;
+    }
+}
+
 .panel-body .card:hover {
     box-shadow: 0 3px 3px rgba(170, 170, 170, 0.2)
 }
